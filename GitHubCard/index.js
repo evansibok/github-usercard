@@ -49,11 +49,11 @@ const followersArray = [];
 
 */
 
-function UserData(user){
-  // debugger
+function userData(user){
+  debugger
 
   let div1 = document.createElement("div");
-  div.classList.add("card");
+  div1.classList.add("card");
 
   let img = document.createElement("img");
   img.setAttribute.src = user.avatar_url;
@@ -65,9 +65,43 @@ function UserData(user){
   h3.classList.add("name");
   h3.textContent = user.name;
 
+  let p1 = document.createElement("p");
+  p1.classList.add("username");
+  p1.textContent = user.login;
+
+  let p2 = document.createElement("p")
+  p2.textContent = user.location;
+
+  let p3 = document.createElement("p");
+  p3.textContent = "Profile: ";
+
+  let a = document.createElement("a");
+  a.setAttribute("href", user.url);
+  p3.appendChild(a);
+
+  let p4 = document.createElement("p");
+  p4.textContent = "Followers: " + user.followers; 
+
+  let p5 = document.createElement("p");
+  p5.textContent = "Following: " + user.following;
+
+  let p6 = document.createElement("p");
+  p6.textContent = "Bio: " + user.bio;
+
+  
+  // Appending children to appropriate parents
+  div1.appendChild(img);
   div1.appendChild(div2);
-  div2.appendChild(h3);
+  div2.appendChild(p1);
+  div2.appendChild(p2);
+  div2.appendChild(p3);
+  div2.appendChild(p4);
+  div2.appendChild(p5);
+  div2.appendChild(p6);
+
 }
+
+userData();
 
 /* List of LS Instructors Github username's: 
   tetondan
