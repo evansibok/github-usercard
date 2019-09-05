@@ -3,6 +3,9 @@
            https://api.github.com/users/<your name>
 */
 
+axios.get('https://api.github.com/users/evansibok')
+
+
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
    data in order to use it to build your component function 
@@ -45,6 +48,26 @@ const followersArray = [];
 </div>
 
 */
+
+function UserData(user){
+  // debugger
+
+  let div1 = document.createElement("div");
+  div.classList.add("card");
+
+  let img = document.createElement("img");
+  img.setAttribute.src = user.avatar_url;
+
+  let div2 = document.createElement("div");
+  div2.classList.add("card-info");
+
+  let h3 = document.createElement("h3");
+  h3.classList.add("name");
+  h3.textContent = user.name;
+
+  div1.appendChild(div2);
+  div2.appendChild(h3);
+}
 
 /* List of LS Instructors Github username's: 
   tetondan
