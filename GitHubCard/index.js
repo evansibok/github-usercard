@@ -117,6 +117,7 @@ function userData(user) {
   let cardDiv = document.querySelector(".cards");
   cardDiv.appendChild(div1)
 
+  return user;
 };
 
 /* List of LS Instructors Github username's:
