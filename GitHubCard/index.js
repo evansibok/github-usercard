@@ -7,7 +7,7 @@ function githubUser(){
   axios.get('https://api.github.com/users/evansibok')
     .then(response => {
       // debugger
-      response.data;
+      userData(response.data);
     })
     .catch(error => {
       // debugger
@@ -83,17 +83,18 @@ function userData(user) {
   p1.textContent = user.login;
 
   let p2 = document.createElement("p")
-  p2.textContent = user.location;
-
-  let p3 = document.createElement("p");
-  p3.textContent = "Profile: ";
+  p2.textContent = "Location: " + user.location;
 
   let a = document.createElement("a");
-  a.setAttribute("href", user.url);
+  a.textContent = user.html_url;
+  a.setAttribute("href", user.html_url);
+  
+  let p3 = document.createElement("p");
+  p3.textContent = "Profile: ";
   p3.appendChild(a);
 
   let p4 = document.createElement("p");
-  p4.textContent = "Followers: " + response.data.followers;
+  p4.textContent = "Followers: " + user.followers;
 
   let p5 = document.createElement("p");
   p5.textContent = "Following: " + user.following;
@@ -105,6 +106,7 @@ function userData(user) {
   // Appending children to appropriate parents
   div1.appendChild(img);
   div1.appendChild(div2);
+  div2.appendChild(h3);
   div2.appendChild(p1);
   div2.appendChild(p2);
   div2.appendChild(p3);
@@ -112,9 +114,10 @@ function userData(user) {
   div2.appendChild(p5);
   div2.appendChild(p6);
 
-}
+  let cardDiv = document.querySelector(".cards");
+  cardDiv.appendChild(div1)
 
-userData(githubUser);
+};
 
 /* List of LS Instructors Github username's:
   tetondan
