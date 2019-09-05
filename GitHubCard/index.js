@@ -3,17 +3,17 @@
            https://api.github.com/users/<your name>
 */
 
-function githubUserRequest() {
-  axios.get('https://api.github.com/users/evansibok')
-    .then(response => {
-      document.body.innerText = response;
-    })
-  .catch(error => {
-    document.body.innerText = "You aren't getting it! Try again";
-  })
-}
 
-githubUserRequest();
+axios.get('https://api.github.com/users/evansibok')
+  .then(response => {
+    // debugger
+    document.body.innerText = response.data.name;
+  })
+  .catch(error => {
+    // debugger
+    document.body.innerText = error.message;
+  })
+
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
@@ -58,15 +58,16 @@ const followersArray = [];
 
 */
 
+// Step 3
 function userData(user) {
 
-  debugger
+  // debugger
 
   let div1 = document.createElement("div");
   div1.classList.add("card");
 
   let img = document.createElement("img");
-  img.setAttribute.src = user["avatar_url"];
+  img.setAttribute = ("src", user.avatar_url);
 
   let div2 = document.createElement("div");
   div2.classList.add("card-info");
@@ -90,7 +91,7 @@ function userData(user) {
   p3.appendChild(a);
 
   let p4 = document.createElement("p");
-  p4.textContent = "Followers: " + user.followers;
+  p4.textContent = "Followers: " + response.data.followers;
 
   let p5 = document.createElement("p");
   p5.textContent = "Following: " + user.following;
@@ -111,7 +112,7 @@ function userData(user) {
 
 }
 
-userData();
+userData(response.data);
 
 /* List of LS Instructors Github username's:
   tetondan
