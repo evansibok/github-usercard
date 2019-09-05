@@ -3,17 +3,19 @@
            https://api.github.com/users/<your name>
 */
 
-
-axios.get('https://api.github.com/users/evansibok')
-  .then(response => {
-    // debugger
-    document.body.innerText = response.data.name;
-  })
-  .catch(error => {
-    // debugger
-    document.body.innerText = error.message;
-  })
-
+function githubUser(){
+  axios.get('https://api.github.com/users/evansibok')
+    .then(response => {
+      // debugger
+      response.data;
+    })
+    .catch(error => {
+      // debugger
+      document.body.innerText = error;
+    })
+}
+  
+githubUser()
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
@@ -112,7 +114,7 @@ function userData(user) {
 
 }
 
-userData(response.data);
+userData(githubUser);
 
 /* List of LS Instructors Github username's:
   tetondan
