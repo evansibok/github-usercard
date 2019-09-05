@@ -3,8 +3,17 @@
            https://api.github.com/users/<your name>
 */
 
-axios.get('https://api.github.com/users/evansibok')
+function githubUserRequest() {
+  axios.get('https://api.github.com/users/evansibok')
+    .then(response => {
+      document.body.innerText = response;
+    })
+  .catch(error => {
+    document.body.innerText = "You aren't getting it! Try again";
+  })
+}
 
+githubUserRequest();
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
@@ -49,14 +58,15 @@ const followersArray = [];
 
 */
 
-function userData(user){
+function userData(user) {
+
   debugger
 
   let div1 = document.createElement("div");
   div1.classList.add("card");
 
   let img = document.createElement("img");
-  img.setAttribute.src = user.avatar_url;
+  img.setAttribute.src = user["avatar_url"];
 
   let div2 = document.createElement("div");
   div2.classList.add("card-info");
@@ -80,7 +90,7 @@ function userData(user){
   p3.appendChild(a);
 
   let p4 = document.createElement("p");
-  p4.textContent = "Followers: " + user.followers; 
+  p4.textContent = "Followers: " + user.followers;
 
   let p5 = document.createElement("p");
   p5.textContent = "Following: " + user.following;
@@ -88,7 +98,7 @@ function userData(user){
   let p6 = document.createElement("p");
   p6.textContent = "Bio: " + user.bio;
 
-  
+
   // Appending children to appropriate parents
   div1.appendChild(img);
   div1.appendChild(div2);
@@ -103,7 +113,7 @@ function userData(user){
 
 userData();
 
-/* List of LS Instructors Github username's: 
+/* List of LS Instructors Github username's:
   tetondan
   dustinmyers
   justsml
