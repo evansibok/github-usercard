@@ -38,7 +38,7 @@ githubUser()
           user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+const followersArray = []; // NOT DONE !!!!!!!!!
 
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
@@ -127,3 +127,9 @@ function userData(user) {
   luishrd
   bigknell
 */
+
+// https://github.com/ccmelas
+// https://github.com/Ofega
+// https://github.com/richanynguon
+// https://github.com/domeccleston
+// https://github.com/ifiokudoidiok
