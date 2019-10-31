@@ -3,7 +3,7 @@
            https://api.github.com/users/<your name>
 */
 
-function githubUser(){
+function githubUser() {
   axios.get('https://api.github.com/users/evansibok')
     .then(response => {
       // debugger
@@ -14,7 +14,7 @@ function githubUser(){
       document.body.innerText = error;
     })
 }
-  
+
 githubUser()
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
@@ -88,7 +88,7 @@ function userData(user) {
   let a = document.createElement("a");
   a.textContent = user.html_url;
   a.setAttribute("href", user.html_url);
-  
+
   let p3 = document.createElement("p");
   p3.textContent = "Profile: ";
   p3.appendChild(a);
@@ -131,13 +131,11 @@ function userData(user) {
 const followersCard = () => {
 
   axios.get('https://api.github.com/users/evansibok')
-    .then(res => 
+    .then(res =>
       axios.get(res.data.followers_url)
-      .then( response => {
-        userData(response.data)
-      })
-      .catch( error => error)
-      )
+        .then(response => response.data.map(user => userData(user)))
+        .catch(error => error)
+    )
     .catch(err => err)
 
 }
