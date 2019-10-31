@@ -80,27 +80,27 @@ function userData(user) {
 
   let p1 = document.createElement("p");
   p1.classList.add("username");
-  p1.textContent = user.login;
+  p1.textContent = missingInfo(user.login);
 
   let p2 = document.createElement("p")
-  p2.textContent = "Location: " + user.location;
+  p2.textContent = "Location: " + missingInfo(user.location);
 
   let a = document.createElement("a");
   a.textContent = user.html_url;
   a.setAttribute("href", user.html_url);
 
   let p3 = document.createElement("p");
-  p3.textContent = "Profile: ";
+  p3.textContent = "Profile: " + missingInfo(user.url);
   p3.appendChild(a);
 
   let p4 = document.createElement("p");
-  p4.textContent = "Followers: " + user.followers;
+  p4.textContent = "Followers: " + missingInfo(user.followers);
 
   let p5 = document.createElement("p");
-  p5.textContent = "Following: " + user.following;
+  p5.textContent = "Following: " + missingInfo(user.following);
 
   let p6 = document.createElement("p");
-  p6.textContent = "Bio: " + user.bio;
+  p6.textContent = "Bio: " + missingInfo(user.bio);
 
 
   // Appending children to appropriate parents
@@ -127,6 +127,11 @@ function userData(user) {
   luishrd
   bigknell
 */
+
+const missingInfo = (prop) => {
+  return prop ? prop : `This property doesn't exist for this user`;
+}
+
 
 const followersCard = () => {
 
