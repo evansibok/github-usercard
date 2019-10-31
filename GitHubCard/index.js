@@ -128,7 +128,6 @@ function userData(user) {
   bigknell
 */
 
-<<<<<<< HEAD
 const gitUsername = [
   "tetondan",
   "dustinmyers",
@@ -146,10 +145,3 @@ const followersCard = () => {
   .catch()
 
 }
-=======
-// https://github.com/ccmelas
-// https://github.com/Ofega
-// https://github.com/richanynguon
-// https://github.com/domeccleston
-// https://github.com/ifiokudoidiok
->>>>>>> master
