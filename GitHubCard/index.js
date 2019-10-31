@@ -141,9 +141,3 @@ const followersCard = () => {
 }
 
 followersCard()
-
-// request your own data
-// pick followers_url
-// loop through followers_url
-// 1. return their username(throw it into an axios request and return their card)
-// 2. return their profile url(throw it into an axios request and return their card)
