@@ -128,24 +128,24 @@ function userData(user) {
   bigknell
 */
 
-const gitUsername = [
-  "tetondan",
-  "dustinmyers",
-  "justsml",
-  "luishrd",
-  "bigknell"
-]
-
-const newName = gitUsername.forEach(name => console.log(name))
-
 const followersCard = () => {
 
   axios.get('https://api.github.com/users/evansibok')
-    .then(res => {
-      return res.data.followers_url.forEach(() => {
-
+    .then(res => 
+      axios.get(res.data.followers_url)
+      .then( response => {
+        userData(response.data)
       })
-    })
-    .catch()
+      .catch( error => error)
+      )
+    .catch(err => err)
 
 }
+
+followersCard()
+
+// request your own data
+// pick followers_url
+// loop through followers_url
+// 1. return their username(throw it into an axios request and return their card)
+// 2. return their profile url(throw it into an axios request and return their card)
