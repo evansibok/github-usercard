@@ -3,7 +3,7 @@
            https://api.github.com/users/<your name>
 */
 
-function githubUser(){
+function githubUser() {
   axios.get('https://api.github.com/users/evansibok')
     .then(response => {
       // debugger
@@ -14,7 +14,7 @@ function githubUser(){
       document.body.innerText = error;
     })
 }
-  
+
 githubUser()
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
@@ -80,27 +80,27 @@ function userData(user) {
 
   let p1 = document.createElement("p");
   p1.classList.add("username");
-  p1.textContent = user.login;
+  p1.textContent = missingInfo(user.login);
 
   let p2 = document.createElement("p")
-  p2.textContent = "Location: " + user.location;
+  p2.textContent = "Location: " + missingInfo(user.location);
 
   let a = document.createElement("a");
   a.textContent = user.html_url;
   a.setAttribute("href", user.html_url);
-  
+
   let p3 = document.createElement("p");
   p3.textContent = "Profile: ";
   p3.appendChild(a);
 
   let p4 = document.createElement("p");
-  p4.textContent = "Followers: " + user.followers;
+  p4.textContent = "Followers: " + missingInfo(user.followers);
 
   let p5 = document.createElement("p");
-  p5.textContent = "Following: " + user.following;
+  p5.textContent = "Following: " + missingInfo(user.following);
 
   let p6 = document.createElement("p");
-  p6.textContent = "Bio: " + user.bio;
+  p6.textContent = "Bio: " + missingInfo(user.bio);
 
 
   // Appending children to appropriate parents
@@ -128,8 +128,22 @@ function userData(user) {
   bigknell
 */
 
-// https://github.com/ccmelas
-// https://github.com/Ofega
-// https://github.com/richanynguon
-// https://github.com/domeccleston
-// https://github.com/ifiokudoidiok
+// function to display null for missing properties in followers cardlist
+const missingInfo = (prop) => {
+  return prop ? prop : null;
+}
+
+// Get and populate followers card list
+const followersCard = () => {
+
+  axios.get('https://api.github.com/users/evansibok')
+    .then(res =>
+      axios.get(res.data.followers_url)
+        .then(response => response.data.map(user => userData(user)))
+        .catch(error => error)
+    )
+    .catch(err => err)
+
+}
+
+followersCard()
