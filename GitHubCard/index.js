@@ -6,7 +6,7 @@
 function githubUser(){
   axios.get('https://api.github.com/users/evansibok')
     .then(response => {
-      // debugger
+      debugger
       userData(response.data);
     })
     .catch(error => {
@@ -127,3 +127,21 @@ function userData(user) {
   luishrd
   bigknell
 */
+
+const gitUsername = [
+  "tetondan",
+  "dustinmyers",
+  "justsml",
+  "luishrd",
+  "bigknell"
+]
+
+const newName = gitUsername.forEach(name => console.log(name))
+
+const followersCard = () => {
+
+  axios.get()
+  .then()
+  .catch()
+
+}
