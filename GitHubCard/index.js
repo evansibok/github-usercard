@@ -90,7 +90,7 @@ function userData(user) {
   a.setAttribute("href", user.html_url);
 
   let p3 = document.createElement("p");
-  p3.textContent = "Profile: " + missingInfo(user.url);
+  p3.textContent = "Profile: ";
   p3.appendChild(a);
 
   let p4 = document.createElement("p");
@@ -128,11 +128,12 @@ function userData(user) {
   bigknell
 */
 
+// function to display null for missing properties in followers cardlist
 const missingInfo = (prop) => {
-  return prop ? prop : `This property doesn't exist for this user`;
+  return prop ? prop : null;
 }
 
-
+// Get and populate followers card list
 const followersCard = () => {
 
   axios.get('https://api.github.com/users/evansibok')
